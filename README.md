@@ -1,6 +1,7 @@
 # https://ezovpn.movcmpret.com
 
-ezOVPN - The easy open source OpenVPN Client
+# What is ezOVPN?
+ezOVPN - or easy OVPN - is an open source cross-platform OpenVPN GUI client, that allows you to easily manage your configurations. 
 
 
 
