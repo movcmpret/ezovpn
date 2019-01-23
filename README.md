@@ -19,7 +19,9 @@ The quickstart guide helps you to immediately jump into ezOVPN.
 3. Enjoy ezOVPN :-)
 
 # 'I want to know what I am doing' guide
-Unfortunately, ezOVPN needs to be executed as root, because it is interacting with the OpenVPN CLI, which creates a TUN/TAP interface and a local TCP server called [Management Interface](https://openvpn.net/community-resources/management-interface/).
+__Important:__ Unfortunately, ezOVPN needs to be executed as root, because it is interacting with the OpenVPN CLI, which creates a TUN/TAP interface and a local TCP server called [Management Interface](https://openvpn.net/community-resources/management-interface/). 
+
+__ezOVPN is still an unstable and unsecure software, so please be careful and don't use this software, unless you operate on a safe environment. Keep in mind, that you use this software at your own risk. I don't give any warartny__
 
 
 
@@ -33,3 +35,9 @@ openvpn.com - OpenVPN
 
 nordvpn.com - NordVPN
 
+
+
+
+Copyright © movcmpret.com, released under GPLv3
+
+Questions to `movcmpret -[at]- protonmail -[dot]- com`
