@@ -1,0 +1,5 @@
+/bin/
+.session
+*.session
+*.log
+/target/
