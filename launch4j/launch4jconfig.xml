@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<launch4jConfig>
+  <dontWrapJar>false</dontWrapJar>
+  <headerType>gui</headerType>
+  <jar>..\target\ezovpnclient-Alpha_1.4.jar</jar>
+  <outfile>..\target\ezOVPNClient.exe</outfile>
+  <errTitle>Please download Java.</errTitle>
+  <cmdLine></cmdLine>
+  <chdir>.</chdir>
+  <priority>normal</priority>
+  <downloadUrl>https://ezovpn.movcmpret.com/download</downloadUrl>
+  <supportUrl></supportUrl>
+  <stayAlive>false</stayAlive>
+  <restartOnCrash>false</restartOnCrash>
+  <manifest></manifest>
+  <icon>favicon.ico</icon>
+  <singleInstance>
+    <mutexName>ezovpn_lock</mutexName>
+    <windowTitle>ezOVPNClient</windowTitle>
+  </singleInstance>
+  <jre>
+    <path>C:\Program Files (x86)\Java\jre1.8.0_171</path>
+    <bundledJre64Bit>false</bundledJre64Bit>
+    <bundledJreAsFallback>true</bundledJreAsFallback>
+    <minVersion>1.8</minVersion>
+    <maxVersion></maxVersion>
+    <jdkPreference>preferJre</jdkPreference>
+    <runtimeBits>32/64</runtimeBits>
+    <maxHeapSize>2048</maxHeapSize>
+  </jre>
+  <versionInfo>
+    <fileVersion>0.0.0.0</fileVersion>
+    <txtFileVersion>n.a.</txtFileVersion>
+    <fileDescription>An easy OpenVPN client with GUI</fileDescription>
+    <copyright>(C) 2018 movcmpret https://ezovpn.movcmpret.com/</copyright>
+    <productVersion>0.0.4.1</productVersion>
+    <txtProductVersion>Alpha 4</txtProductVersion>
+    <productName>ezOVPNClient</productName>
+    <companyName></companyName>
+    <internalName>ezOVPNClient</internalName>
+    <originalFilename>ezOVPNClient.exe</originalFilename>
+    <trademarks></trademarks>
+    <language>ENGLISH_US</language>
+  </versionInfo>
+</launch4jConfig>

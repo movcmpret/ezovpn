@@ -1,0 +1,9 @@
+[Desktop Entry]
+Name=ezOVPN
+Comment=The easy open source OpenVPN client.
+Exec=sudo ezovpn
+Path=
+Terminal=false
+Type=Application
+Icon=/path/to/ezOVPN_logo.png
+Categories=Utility;Development;
