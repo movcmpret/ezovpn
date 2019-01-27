@@ -56,7 +56,7 @@ public class DefaultOVPNTable extends OVPNTable {
 	protected void setColumnWidth() {
 		fileNameColumn.prefWidthProperty().bind(this.widthProperty().divide(3));
 		protocolTableColumn.prefWidthProperty().bind(this.widthProperty().divide(3)); 
-		portTableColumn.prefWidthProperty().bind(this.widthProperty().divide(3.07));
+		portTableColumn.prefWidthProperty().bind(this.widthProperty().divide(3.2));
 
 		
 	}

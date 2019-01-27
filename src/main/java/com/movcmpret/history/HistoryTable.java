@@ -24,22 +24,25 @@ package com.movcmpret.history;
 
 
 import java.util.ArrayList;
+import java.util.List;
 
 import com.movcmpret.constants.Constants;
 import com.movcmpret.event.EventManager;
 import com.movcmpret.event.ListChangeEvent;
 import com.movcmpret.event.ListChangeEventAdditionType;
 import com.movcmpret.ovpn.config.OVPNConfig;
-import com.movcmpret.ovpn.config.OVPNDefaultConfig;
 import com.movcmpret.tabs.TabOverviewController;
 import com.movcmpret.utility.AlertManager;
 import com.movcmpret.utility.Logger;
 
 import javafx.beans.binding.Bindings;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.scene.control.ContextMenu;
 import javafx.scene.control.MenuItem;
+import javafx.scene.control.SelectionMode;
 import javafx.scene.control.TableColumn;
+import javafx.scene.control.TablePosition;
 import javafx.scene.control.TableRow;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
@@ -80,10 +83,11 @@ public class HistoryTable extends TableView<ConnectionHistoryElement>
 			this.getColumns().add(dateTableColumn);
 			this.getColumns().add(timeTableColumn);			
 			
+			this.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
 			setColumnWidth();
 			//Context Menu
 			this.initContextMenu();
-		}	
+		}
 		
 		/**
 		 * Used to set the (relative) column widths
@@ -141,30 +145,34 @@ public class HistoryTable extends TableView<ConnectionHistoryElement>
 
 		public void onContextMenuAddAction(ActionEvent e)
 		{
-			ConnectionHistoryElement selectedItem = this.getSelectionModel().getSelectedItem();
-		if (selectedItem != null && selectedItem.getConfig() != null) 
-		{
-			ArrayList<OVPNConfig> list = new ArrayList<OVPNConfig>();
-			list.add(selectedItem.getConfig());
+		List<ConnectionHistoryElement> selectedItems = this.getSelectionModel().getSelectedItems();
+		ArrayList<OVPNConfig> list = new ArrayList<OVPNConfig>();
+			for(ConnectionHistoryElement selectedItem : selectedItems)
+			{
+				if (selectedItem != null && selectedItem.getConfig() != null) 
+				{
+				list.add(selectedItem.getConfig());
+				}
+
+			}
 			EventManager.getInstance().fireListChangeEvent(
 					new ListChangeEvent(list, ListChangeEventAdditionType.ADDITION));
 			AlertManager.showInfoToast(
 					Constants.getInformationAlert_ConfigsSuccessfullyAdded().replace("configs", "config")
 							.replace("Konfigurationen", "Konfiguration").replace("wurden", "wurde"),
 					(Stage) getScene().getWindow());
-		}
-		else
-		{
-			Logger.LogError(this.getClass().getName() + ": Error while adding config: Selected element is null.");
-		}
-		}
+		}	
+		
 
 		public void onContextMenuDeleteAction(ActionEvent e) {
-			ConnectionHistoryElement selectedItem = this.getSelectionModel().getSelectedItem();
-			if (selectedItem != null) {
-				this.getItems().remove(selectedItem);
-				AlertManager.showInfoToast(selectedItem.getName() + " " + Constants.getRemoved().toLowerCase() + ".",
-						 (Stage)TabOverviewController.thisInstance.getButtonConnect().getScene().getWindow());
+			List<ConnectionHistoryElement> selectedItems = this.getSelectionModel().getSelectedItems();
+			for(ConnectionHistoryElement selectedItem : selectedItems)
+			{
+				if (selectedItem != null) {
+					this.getItems().remove(selectedItem);
+					AlertManager.showInfoToast(selectedItem.getName() + " " + Constants.getRemoved().toLowerCase() + ".",
+							(Stage)TabOverviewController.thisInstance.getButtonConnect().getScene().getWindow());
+			}
 			}
 		}
 		

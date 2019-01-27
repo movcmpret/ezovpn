@@ -24,7 +24,6 @@ package com.movcmpret.tabs;
 
 
 import java.net.URL;
-import java.util.List;
 import java.util.ResourceBundle;
 
 import com.movcmpret.event.EventManager;
@@ -33,12 +32,10 @@ import com.movcmpret.history.HistoryTable;
 import com.movcmpret.interfaces.DefaultController;
 import com.movcmpret.persistence.UserProfile;
 
-import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.geometry.Insets;
-import javafx.scene.control.TableView;
 import javafx.scene.layout.GridPane;
 
 /**
@@ -50,9 +47,9 @@ public class TabHistoryController implements DefaultController, Initializable
 {
 
 	@FXML
-	GridPane gridPaneHistory;
+	private GridPane gridPaneHistory;
 	
-	ObservableList<ConnectionHistoryElement> historyTableData;
+	private ObservableList<ConnectionHistoryElement> historyTableData;
 	
 	@Override
 	public void initialize(URL location, ResourceBundle resources) 
@@ -72,6 +69,7 @@ public class TabHistoryController implements DefaultController, Initializable
 		
 		this.gridPaneHistory.add(this.historyTableView, 0, 0);
 		GridPane.setColumnSpan(historyTableView, Integer.MAX_VALUE);
+		GridPane.setRowSpan(historyTableView, Integer.MAX_VALUE);
 		GridPane.setMargin(this.historyTableView, new Insets(5,5,5,5));
 		this.historyTableView.setItems(historyTableData);	
 
@@ -97,6 +95,10 @@ public class TabHistoryController implements DefaultController, Initializable
 	{
 		// TODO Auto-generated method stub
 		
+	}
+
+	public ObservableList<ConnectionHistoryElement> getHistoryTableData() {
+		return historyTableData;
 	}
 
 

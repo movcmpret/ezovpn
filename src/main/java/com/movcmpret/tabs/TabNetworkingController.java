@@ -24,20 +24,14 @@ package com.movcmpret.tabs;
 
 
 import java.net.URL;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.ResourceBundle;
-import java.util.concurrent.ThreadLocalRandom;
 
 import com.movcmpret.constants.Constants;
 import com.movcmpret.event.EventManager;
 import com.movcmpret.interfaces.ConnectionChanged;
 import com.movcmpret.interfaces.DefaultController;
 import com.movcmpret.interfaces.NewMessageHandler;
-import com.movcmpret.persistence.UserProfile;
-import com.movcmpret.utility.Logger;
 
-import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
@@ -48,7 +42,6 @@ import javafx.scene.chart.StackedAreaChart;
 import javafx.scene.chart.XYChart;
 import javafx.scene.chart.XYChart.Data;
 import javafx.scene.chart.XYChart.Series;
-import javafx.scene.paint.Color;
 
 /**
  * Controller class for the networking tab

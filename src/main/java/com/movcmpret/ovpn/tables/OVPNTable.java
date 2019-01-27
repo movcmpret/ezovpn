@@ -25,6 +25,10 @@ package com.movcmpret.ovpn.tables;
 
 import com.movcmpret.constants.Constants;
 import com.movcmpret.dialog.editconfig.EditConfigController;
+import com.movcmpret.ovpn.config.OVPNConfig;
+import com.movcmpret.tabs.TabOverviewController;
+import com.movcmpret.utility.AlertManager;
+import com.movcmpret.utility.Logger;
 
 import javafx.beans.binding.Bindings;
 import javafx.event.ActionEvent;
@@ -36,10 +40,6 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 import javafx.util.Callback;
-import com.movcmpret.ovpn.config.OVPNConfig;
-import com.movcmpret.tabs.TabOverviewController;
-import com.movcmpret.utility.AlertManager;
-import com.movcmpret.utility.Logger;
 
 public abstract class OVPNTable extends TableView<OVPNConfig>
 {

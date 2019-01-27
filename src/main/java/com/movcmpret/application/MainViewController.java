@@ -30,6 +30,29 @@ import java.util.ArrayList;
 import java.util.Optional;
 import java.util.ResourceBundle;
 
+import com.movcmpret.constants.Constants;
+import com.movcmpret.constants.Language;
+import com.movcmpret.dialog.aboutdialog.AboutDialogController;
+import com.movcmpret.dialog.credentials.CredentialInputController;
+import com.movcmpret.dialog.editconfig.EditConfigController;
+import com.movcmpret.event.EventManager;
+import com.movcmpret.event.ListChangeEvent;
+import com.movcmpret.importManager.fileimport.ImportManagerController;
+import com.movcmpret.importManager.nordvpnapi.ImportManagerNordVPNController;
+import com.movcmpret.interfaces.DefaultController;
+import com.movcmpret.interfaces.ListChangeHandler;
+import com.movcmpret.osBridge.OSBridge;
+import com.movcmpret.ovpn.config.OVPNConfig;
+import com.movcmpret.ovpn.tables.DefaultOVPNTable;
+import com.movcmpret.ovpn.tables.NordVPNTable;
+import com.movcmpret.persistence.UserProfile;
+import com.movcmpret.tabs.TabHistoryController;
+import com.movcmpret.tabs.TabNetworkingController;
+import com.movcmpret.tabs.TabOverviewController;
+import com.movcmpret.utility.AlertManager;
+import com.movcmpret.utility.Logger;
+import com.sun.javafx.tk.FileChooserType;
+
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -46,33 +69,10 @@ import javafx.scene.control.RadioMenuItem;
 import javafx.scene.control.Tab;
 import javafx.scene.control.TabPane;
 import javafx.scene.control.ToggleGroup;
+import javafx.scene.image.Image;
 import javafx.scene.layout.GridPane;
-import javafx.stage.DirectoryChooser;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
-import com.movcmpret.osBridge.OSBridge;
-import com.movcmpret.ovpn.OVPNFileParser;
-import com.movcmpret.ovpn.config.OVPNConfig;
-import com.movcmpret.ovpn.tables.DefaultOVPNTable;
-import com.movcmpret.ovpn.tables.NordVPNTable;
-import com.movcmpret.persistence.UserProfile;
-import com.movcmpret.tabs.TabHistoryController;
-import com.movcmpret.tabs.TabNetworkingController;
-import com.movcmpret.tabs.TabOverviewController;
-import com.movcmpret.utility.AlertManager;
-import com.movcmpret.utility.Logger;
-import com.sun.javafx.tk.FileChooserType;
-import com.movcmpret.constants.Constants;
-import com.movcmpret.constants.Language;
-import com.movcmpret.dialog.aboutdialog.AboutDialogController;
-import com.movcmpret.dialog.credentials.CredentialInputController;
-import com.movcmpret.dialog.editconfig.EditConfigController;
-import com.movcmpret.event.EventManager;
-import com.movcmpret.event.ListChangeEvent;
-import com.movcmpret.importManager.fileimport.ImportManagerController;
-import com.movcmpret.importManager.nordvpnapi.ImportManagerNordVPNController;
-import com.movcmpret.interfaces.DefaultController;
-import com.movcmpret.interfaces.ListChangeHandler;
  
 public class MainViewController implements Initializable, DefaultController,ListChangeHandler{
 	
@@ -139,7 +139,9 @@ public class MainViewController implements Initializable, DefaultController,List
 	@FXML
 	private Menu MenuHelp;
 	@FXML
-	private MenuItem MenuItemClear;
+	private MenuItem MenuItemOverviewClear;
+	@FXML
+	private MenuItem MenuItemHistoryClear;
 	@FXML
 	private Menu MenuChangeLanguage;
 	@FXML
@@ -210,15 +212,18 @@ public class MainViewController implements Initializable, DefaultController,List
 		
 		//ImportManager
 		importStage = new Stage();
+		importStage.getIcons().add(new Image(this.getClass().getResourceAsStream("ezOVPN_logo.png")));
 		importFXMLLoader = new FXMLLoader(getClass().getResource(Constants.getFXML_ImportManagerFilename()));
 
 		//ImportManager NordVPN
 		importNordVPNStage = new Stage();
+		importNordVPNStage.getIcons().add(new Image(this.getClass().getResourceAsStream("ezOVPN_logo.png")));
 		importNordVPNFXMLLoader = new FXMLLoader(getClass().getResource(Constants.getFXML_ImportManagerNordVPNFilename()));
 
 		
 		//CredentialInput
 		credentialInputStage = new Stage();
+		credentialInputStage.getIcons().add(new Image(this.getClass().getResourceAsStream("ezOVPN_logo.png")));
 		credentialInputFXMLLoader = new FXMLLoader(getClass().getResource(Constants.getFXML_CredentialInputFilename()));
 		
     	//Load Tabs 
@@ -235,6 +240,9 @@ public class MainViewController implements Initializable, DefaultController,List
 		//Set RadioMenuItem selected for Language
 		setupLanguageRadioMenuItems();
 		
+		// Hide unfinished tabs
+//		this.OverviewTabPane.getTabs().remove(HistoryTab);
+		this.OverviewTabPane.getTabs().remove(SettingsTab);
 		
 		updateTexts();		
 		bind();
@@ -295,10 +303,21 @@ public class MainViewController implements Initializable, DefaultController,List
      *
      */
     @FXML 
-    protected void menuItemClearOnClick(ActionEvent event) 
+    protected void menuItemOverviewClearOnClick(ActionEvent event) 
     {
     	this.tabOverviewController.getOverviewTableData().clear();
     	UserProfile.getInstance().getUserProfileData().setLastConfig(null);
+    }
+    
+    
+    /**
+     *  Clear HistoryTable
+     *
+     */
+    @FXML 
+    protected void menuItemClearHistoryOnClick(ActionEvent event) 
+    {
+    	this.tabHistoryController.getHistoryTableData().clear();
     }
     
     /**
@@ -594,7 +613,8 @@ public class MainViewController implements Initializable, DefaultController,List
 		
 		
 		this.MenuEdit.setText(Constants.getEdit());
-		this.MenuItemClear.setText(Constants.getClear());	
+		this.MenuItemOverviewClear.setText(Constants.getOverviewClear());	
+		this.MenuItemHistoryClear.setText(Constants.getHistoryClear());	
 		
 		//Menu Help
 		this.MenuHelp.setText(Constants.getHelp());

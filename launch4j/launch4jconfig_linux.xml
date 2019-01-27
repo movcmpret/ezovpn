@@ -2,7 +2,7 @@
 <launch4jConfig>
   <dontWrapJar>false</dontWrapJar>
   <headerType>gui</headerType>
-  <jar>../target/ezovpnclient-Alpha_2.0.jar</jar>
+  <jar>../target/ezovpnclient-Alpha_2.1.jar</jar>
   <outfile>../target/ezOVPNClient.exe</outfile>
   <errTitle>Please download Java.</errTitle>
   <cmdLine></cmdLine>

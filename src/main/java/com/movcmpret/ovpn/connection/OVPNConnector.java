@@ -28,12 +28,12 @@ import com.movcmpret.constants.Constants;
 import com.movcmpret.dialog.consoledialog.ConsoleOutputDialog;
 import com.movcmpret.event.ConnectionChangedArgs;
 import com.movcmpret.event.EventManager;
+import com.movcmpret.interfaces.NewMessageHandler;
 import com.movcmpret.osBridge.OSBridge;
 import com.movcmpret.ovpn.config.OVPNConfig;
 import com.movcmpret.persistence.UserProfile;
 import com.movcmpret.utility.AlertManager;
 import com.movcmpret.utility.Logger;
-import com.movcmpret.interfaces.NewMessageHandler;
 
 import javafx.scene.paint.Color;
 

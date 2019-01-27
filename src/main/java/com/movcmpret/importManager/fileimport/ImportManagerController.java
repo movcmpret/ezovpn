@@ -35,6 +35,13 @@ import com.movcmpret.event.EventManager;
 import com.movcmpret.event.ListChangeEvent;
 import com.movcmpret.event.ListChangeEventAdditionType;
 import com.movcmpret.interfaces.DefaultController;
+import com.movcmpret.ovpn.OVPNConfigType;
+import com.movcmpret.ovpn.OVPNFileParser;
+import com.movcmpret.ovpn.config.OVPNConfig;
+import com.movcmpret.persistence.UserProfile;
+import com.movcmpret.utility.AlertManager;
+import com.movcmpret.utility.Logger;
+
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -52,12 +59,6 @@ import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.GridPane;
 import javafx.stage.DirectoryChooser;
 import javafx.stage.Stage;
-import com.movcmpret.ovpn.OVPNConfigType;
-import com.movcmpret.ovpn.OVPNFileParser;
-import com.movcmpret.ovpn.config.OVPNConfig;
-import com.movcmpret.persistence.UserProfile;
-import com.movcmpret.utility.AlertManager;
-import com.movcmpret.utility.Logger;
 
 /**
  * Controller class for the {@code ImportManager.fxml} view.

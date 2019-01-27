@@ -86,6 +86,7 @@ public class UserProfile
 		data.setConnectionInformationList(profileData.getConnectionInformationList());
 		data.setShowExitDialog(profileData.isShowExitDialog());
 		data.setImportExport_LastFolder(profileData.getImportExport_LastFolder());
+		data.setShowNoRootDialog(profileData.isShowNoRootDialog());
 	}
 	
 	public UserProfileData getUserProfileData() 

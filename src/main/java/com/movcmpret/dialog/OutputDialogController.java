@@ -1,5 +1,7 @@
 package com.movcmpret.dialog;
 
+import com.movcmpret.application.MainViewController;
+
 /*-
  * #%L
  * ezOVPNClient
@@ -26,6 +28,7 @@ package com.movcmpret.dialog;
 import com.movcmpret.interfaces.DefaultController;
 
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
 import javafx.stage.Stage;
 
 /**
@@ -63,7 +66,8 @@ public abstract class OutputDialogController<T extends OutputDialogView> impleme
 	protected void initializeComponent() 
 	{
 		scene = new Scene(view, windowWidth, windowHeight);
-		stage = new Stage();	
+		stage = new Stage();
+		stage.getIcons().add(new Image(MainViewController.class.getResourceAsStream("ezOVPN_logo.png")));
 		stage.setScene(scene);
 	}
 	

@@ -33,6 +33,13 @@ import java.util.Scanner;
 import com.movcmpret.constants.Constants;
 import com.movcmpret.event.EventManager;
 import com.movcmpret.interfaces.DefaultController;
+import com.movcmpret.osBridge.OSBridge;
+import com.movcmpret.ovpn.OVPNFileParser;
+import com.movcmpret.ovpn.config.OVPNConfig;
+import com.movcmpret.tabs.TabOverviewController;
+import com.movcmpret.utility.AlertManager;
+import com.movcmpret.utility.Logger;
+
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
@@ -42,17 +49,11 @@ import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.TextArea;
-import javafx.scene.control.Alert.AlertType;
 import javafx.stage.Stage;
-import com.movcmpret.osBridge.OSBridge;
-import com.movcmpret.ovpn.OVPNFileParser;
-import com.movcmpret.ovpn.config.OVPNConfig;
-import com.movcmpret.tabs.TabOverviewController;
-import com.movcmpret.utility.AlertManager;
-import com.movcmpret.utility.Logger;
 
 public class EditConfigController implements Initializable, DefaultController
 {

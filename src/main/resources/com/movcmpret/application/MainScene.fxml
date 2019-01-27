@@ -51,7 +51,8 @@
           </Menu>
           <Menu fx:id="MenuEdit" mnemonicParsing="false" text="Edit">
         	<items>
-               <MenuItem fx:id="MenuItemClear" mnemonicParsing="false" onAction="#menuItemClearOnClick" text="Clear Table" />
+               <MenuItem fx:id="MenuItemOverviewClear" mnemonicParsing="false" onAction="#menuItemOverviewClearOnClick" text="Clear Overview Table" />
+               <MenuItem fx:id="MenuItemHistoryClear" mnemonicParsing="false" onAction="#menuItemClearHistoryOnClick" text="Clear History Table" />
                <MenuItem fx:id="MenuItemEditConfig" mnemonicParsing="false" onAction="#menuItemEditOnClick" text="Edit config file" />
             </items>
            </Menu>

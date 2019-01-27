@@ -24,6 +24,7 @@ package com.movcmpret.ovpn.config;
 
 
 import java.io.File;
+
 import com.movcmpret.web.nordvpn.NordVPNInfoJson;
 
 public class NordVPNConfig extends OVPNConfig{

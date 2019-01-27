@@ -31,6 +31,7 @@ import java.nio.file.Paths;
 import java.nio.file.attribute.PosixFilePermission;
 import java.util.HashSet;
 import java.util.Set;
+import java.util.prefs.Preferences;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -43,6 +44,10 @@ import com.movcmpret.ovpn.config.OVPNConfig;
 import com.movcmpret.persistence.UserProfile;
 import com.movcmpret.persistence.UserProfileData;
 import com.movcmpret.utility.AlertManager;
+import com.movcmpret.utility.panes.YesNoCheckboxDialogPane;
+
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 /**
  * Class for performing non-trivial OS-calls 
  * @author movcmpret
@@ -82,17 +87,28 @@ public class OSBridge
 		if( (new File("/root").canRead() && new File("/root").canWrite()) )
 			return;
 		}
-		else
+		else if(isWindows())
 		{
-			//TODO
-//		  String groups[] = (new com.sun.security.auth.module.NTSystem()).getGroupIDs();
-//		   for (String group : groups) {
-//		      if (group.equals("S-1-5-32-544"))
-//		    	  return;
-//		   }		    
+		    Preferences prefs = Preferences.systemRoot();
+		    try{
+		        prefs.put("foo", "bar"); // SecurityException on Windows
+		        return;
+		    	}
+		    catch(Exception e){}
 		}
-		AlertManager.showWarningAlert(Constants.getPermission_NoRoot(), Constants.getPermission_NoRootHeader());
-	}	
+	    
+		if( UserProfile.getInstance().getUserProfileData().isShowNoRootDialog() )
+		{
+		Alert isRootDialog = AlertManager.createOKDoNotShowAgainAlert(AlertType.WARNING,
+				Constants.getPermission_NoRoot(), Constants.getPermission_NoRootHeader());
+		((YesNoCheckboxDialogPane)isRootDialog.getDialogPane()).setMinHeight(200.);
+		
+		isRootDialog.showAndWait();
+
+		UserProfile.getInstance().getUserProfileData()
+				.setShowNoRootDialog(!((YesNoCheckboxDialogPane) isRootDialog.getDialogPane()).isNotShowAgain());
+		}
+	}
 	
 	public void writeSession() {
 		try {

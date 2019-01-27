@@ -29,6 +29,9 @@ import java.util.ResourceBundle;
 import com.movcmpret.constants.Constants;
 import com.movcmpret.event.EventManager;
 import com.movcmpret.interfaces.DefaultController;
+import com.movcmpret.persistence.UserProfile;
+import com.movcmpret.utility.Logger;
+
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -38,8 +41,6 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
-import com.movcmpret.persistence.UserProfile;
-import com.movcmpret.utility.Logger;
 
 public class CredentialInputController implements Initializable, DefaultController
 {

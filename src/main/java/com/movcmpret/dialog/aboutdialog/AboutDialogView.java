@@ -24,22 +24,16 @@ package com.movcmpret.dialog.aboutdialog;
 
 
 import java.awt.Desktop;
-import java.io.IOException;
 import java.net.URI;
-import java.net.URISyntaxException;
-import java.net.URL;
 
 import javax.swing.SwingUtilities;
 
-import com.movcmpret.application.MainView;
 import com.movcmpret.constants.Constants;
 import com.movcmpret.dialog.OutputDialogView;
 import com.movcmpret.utility.Logger;
 
 import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.geometry.HPos;
-import javafx.geometry.Insets;
 import javafx.geometry.VPos;
 import javafx.scene.control.Hyperlink;
 import javafx.scene.control.Label;

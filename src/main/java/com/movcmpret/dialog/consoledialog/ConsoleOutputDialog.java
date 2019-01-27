@@ -30,11 +30,12 @@ import com.movcmpret.constants.Constants;
 import com.movcmpret.dialog.OutputDialogController;
 import com.movcmpret.dialog.OutputDialogView;
 import com.movcmpret.event.EventManager;
+import com.movcmpret.utility.Logger;
+
 import javafx.scene.Node;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.scene.text.Text;
-import com.movcmpret.utility.Logger;
 
 public class ConsoleOutputDialog extends OutputDialogController<OutputDialogView>
 {	

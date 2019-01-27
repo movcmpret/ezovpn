@@ -23,13 +23,14 @@ package com.movcmpret.ovpn.tables;
 
 
 import com.movcmpret.constants.Constants;
+import com.movcmpret.ovpn.config.NordVPNConfig;
+
 import javafx.scene.control.Label;
 import javafx.scene.control.TableCell;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.paint.Color;
 import javafx.util.Callback;
-import com.movcmpret.ovpn.config.NordVPNConfig;
 
 /**
  * Table implementation of NordVPN Config
@@ -80,9 +81,13 @@ public class NordVPNTable extends OVPNTable
                         		this.setTextFill(Color.RED);
                         	
                             setText(item.toString());
-
+                        }
+                        else 
+                        {
+                        	 setText("");
                         }
                     }
+            
 
                 };
             }
@@ -102,12 +107,12 @@ public class NordVPNTable extends OVPNTable
 	@Override
 	protected void setColumnWidth() 
 	{
-		locationTableColumn.prefWidthProperty().bind(this.widthProperty().divide(4)); 
+		locationTableColumn.prefWidthProperty().bind(this.widthProperty().divide(4.15)); 
 		protocolTableColumn.prefWidthProperty().bind(this.widthProperty().divide(10)); 
 		portTableColumn.prefWidthProperty().bind(this.widthProperty().divide(10));
 		idTableColumn.prefWidthProperty().bind(this.widthProperty().divide(10));
 		fileNameColumn.prefWidthProperty().bind(this.widthProperty().divide(3.05));
-		loadColumn.prefWidthProperty().bind(this.widthProperty().divide(8.5));
+		loadColumn.prefWidthProperty().bind(this.widthProperty().divide(9.2));
 	}
 	
 	@Override

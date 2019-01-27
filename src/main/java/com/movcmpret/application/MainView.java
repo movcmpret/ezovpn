@@ -26,9 +26,6 @@ package com.movcmpret.application;
 import java.util.Optional;
 
 import com.movcmpret.constants.Constants;
-import com.movcmpret.dialog.credentials.CredentialInputController;
-import com.movcmpret.importManager.fileimport.ImportManagerController;
-import com.movcmpret.importManager.nordvpnapi.ImportManagerNordVPNController;
 import com.movcmpret.osBridge.OSBridge;
 import com.movcmpret.ovpn.connection.OVPNConnector;
 import com.movcmpret.persistence.UserProfile;
@@ -37,7 +34,6 @@ import com.movcmpret.utility.Logger;
 import com.movcmpret.utility.panes.YesNoCheckboxDialogPane;
 
 import javafx.application.Application;
-import javafx.application.HostServices;
 import javafx.application.Platform;
 import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
@@ -181,7 +177,7 @@ public class MainView extends Application implements EventHandler<WindowEvent> {
 	// Close the stage
 	public void handle(WindowEvent event) {
 		if (UserProfile.getInstance().getUserProfileData().isShowExitDialog()) {
-			Alert exitDialog = AlertManager.createYesNoDoNotShowAgainAlert(AlertType.INFORMATION,
+			Alert exitDialog = AlertManager.createYesNoDoNotShowAgainAlert(AlertType.WARNING,
 					Constants.getYesNoCheckBoxDialogPane_ExitDialogText(), Constants.getYesNoCheckboxDialogPane_Exit());
 			Optional result = exitDialog.showAndWait();
 			if (((YesNoCheckboxDialogPane) exitDialog.getDialogPane()).isNotShowAgain())

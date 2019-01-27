@@ -35,6 +35,13 @@ import com.movcmpret.event.EventManager;
 import com.movcmpret.event.ListChangeEvent;
 import com.movcmpret.event.ListChangeEventAdditionType;
 import com.movcmpret.interfaces.DefaultController;
+import com.movcmpret.ovpn.OVPNFileParser;
+import com.movcmpret.ovpn.config.NordVPNConfig;
+import com.movcmpret.utility.AlertManager;
+import com.movcmpret.utility.Logger;
+import com.movcmpret.web.nordvpn.NordVPNInfoJson;
+import com.movcmpret.web.nordvpn.WebJsonParser;
+
 import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -55,12 +62,6 @@ import javafx.scene.layout.GridPane;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
-import com.movcmpret.ovpn.OVPNFileParser;
-import com.movcmpret.ovpn.config.NordVPNConfig;
-import com.movcmpret.utility.AlertManager;
-import com.movcmpret.utility.Logger;
-import com.movcmpret.web.nordvpn.NordVPNInfoJson;
-import com.movcmpret.web.nordvpn.WebJsonParser;
 
 /**
  * Import manager for NordVPN configs obtained by api.nordvpn.com

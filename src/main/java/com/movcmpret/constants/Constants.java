@@ -34,10 +34,9 @@ import org.joda.time.format.PeriodFormatter;
 import org.joda.time.format.PeriodFormatterBuilder;
 
 import com.movcmpret.event.EventManager;
-import com.movcmpret.event.UpdateViewArgs;
-import com.movcmpret.utility.Logger;
 import com.movcmpret.osBridge.OSBridge;
 import com.movcmpret.osBridge.OSType;
+import com.movcmpret.utility.Logger;
 
 public class Constants {
 	
@@ -153,7 +152,6 @@ public class Constants {
 			private static String DE_Import = "Importieren...";
 			private static String DE_ChangeLanguage = "Sprache";
 			private static String DE_Help = "Hilfe";
-			private static String DE_Clear = "Übersicht-Tabelle Leeren";
 			private static String DE_German ="Deutsch";
 			private static String DE_English ="Englisch";
 			private static String DE_FileName = "Dateiname";
@@ -193,8 +191,8 @@ public class Constants {
 			private static String DE_MenuItem_Import_Failed = "Beim Import ist ein Fehler aufgetreten.";
 			private static String DE_MenuItem_Export_Failed = "Beim Export ist ein Fehler aufgetreten.";
 			private static String DE_MenuItem_Import_Warning = "Ein Import benötigt einen Neustart. Alle Verbindungen werden dabei geschlossen. Fortfahren?";
-			
-		
+			private static String DE_MenuItem_OverviewClear = "Übersicht-Tabelle leeren";
+			private static String DE_MenuItem_HistoryClear = "Historie leeren";
 			//Button
 			private static String DE_Connect = "Verbinden";
 		
@@ -273,7 +271,6 @@ public class Constants {
 			private static String EN_Import = "Import...";
 			private static String EN_ChangeLanguage = "Language";
 			private static String EN_Help = "Help";
-			private static String EN_Clear = "Clear Overview table";
 			private static String EN_German = "German";
 			private static String EN_English = "English";
 			private static String EN_FileName = "Filename";
@@ -312,6 +309,8 @@ public class Constants {
 			private static String EN_MenuItem_Import_Failed = "An error occured while importing.";
 			private static String EN_MenuItem_Export_Failed = "An error occured while exporting.";
 			private static String EN_MenuItem_Import_Warning = "An import requires a restart. All connections will be closed. Are you sure to continue?";
+			private static String EN_MenuItem_OverviewClear = "Clear Overview Table";
+			private static String EN_MenuItem_HistoryClear = "Clear History";
 			
 			//Button
 			private static String EN_Connect = "Connect";
@@ -732,13 +731,23 @@ public class Constants {
 			}
 		}	
 		
-		public static String getClear()
+		public static String getOverviewClear()
 		{
 			switch(activeLanguage) 
 			{
-			case GERMAN: 	return DE_Clear;
-			case ENGLISH: 	return EN_Clear;
-			default: 		return EN_Clear;
+			case GERMAN: 	return DE_MenuItem_OverviewClear;
+			case ENGLISH: 	return EN_MenuItem_OverviewClear;
+			default: 		return EN_MenuItem_OverviewClear;
+			}
+		}
+		
+		public static String getHistoryClear()
+		{
+			switch(activeLanguage) 
+			{
+			case GERMAN: 	return DE_MenuItem_HistoryClear;
+			case ENGLISH: 	return EN_MenuItem_HistoryClear;
+			default: 		return EN_MenuItem_HistoryClear;
 			}
 		}
 		

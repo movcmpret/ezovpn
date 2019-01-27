@@ -27,6 +27,7 @@ import java.util.Date;
 
 import org.joda.time.DateTime;
 import org.joda.time.Period;
+
 import com.movcmpret.constants.Constants;
 import com.movcmpret.dialog.consoledialog.ConsoleOutputDialog;
 import com.movcmpret.event.ConnectionChangedArgs;
@@ -34,14 +35,12 @@ import com.movcmpret.event.EventManager;
 import com.movcmpret.history.ConnectionHistoryElement;
 import com.movcmpret.interfaces.ConnectionChanged;
 import com.movcmpret.osBridge.OSBridge;
+import com.movcmpret.ovpn.config.OVPNConfig;
+import com.movcmpret.persistence.UserProfile;
 
 import javafx.application.Platform;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
-import javafx.beans.value.ObservableValue;
-
-import com.movcmpret.ovpn.config.OVPNConfig;
-import com.movcmpret.persistence.UserProfile;
 
 /**
  * Class for storing connection information

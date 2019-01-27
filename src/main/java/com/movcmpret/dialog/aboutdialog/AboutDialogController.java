@@ -25,8 +25,6 @@ package com.movcmpret.dialog.aboutdialog;
 
 import com.movcmpret.dialog.OutputDialogController;
 
-import javafx.stage.Stage;
-
 /**
  * A dialog, providing information about the Software. 
  */

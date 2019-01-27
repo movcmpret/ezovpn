@@ -29,12 +29,11 @@ import java.util.concurrent.TimeUnit;
 import com.movcmpret.constants.Constants;
 import com.movcmpret.event.ConnectionChangedArgs;
 import com.movcmpret.event.EventManager;
-
-
-import javafx.application.Platform;
 import com.movcmpret.utility.AlertManager;
 import com.movcmpret.utility.Logger;
 import com.movcmpret.utility.StreamReaderThreadWorker;
+
+import javafx.application.Platform;
 
 /**
  *  Thread worker class for VPN connections. 

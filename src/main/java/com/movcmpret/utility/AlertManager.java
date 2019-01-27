@@ -29,16 +29,18 @@ import java.util.TimerTask;
 import org.controlsfx.control.NotificationPane;
 import org.controlsfx.control.Notifications;
 
+import com.movcmpret.utility.panes.YesNoCheckboxDialogPane;
+
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.Region;
 import javafx.stage.Stage;
-import com.movcmpret.utility.panes.YesNoCheckboxDialogPane;
 
 /**
  * Class for Alert views
@@ -179,6 +181,16 @@ public class AlertManager {
 	{
 		Alert a = new Alert(type);
 		a.setDialogPane(new YesNoCheckboxDialogPane(text, header));
+		return a;
+	}
+	
+	public static Alert createOKDoNotShowAgainAlert(AlertType type, String text, String header)
+	{
+		Alert a = new Alert(type);
+		a.setDialogPane(new YesNoCheckboxDialogPane(text, header));
+		a.getButtonTypes().remove(ButtonType.NO);
+		a.getButtonTypes().remove(ButtonType.YES);
+		a.getButtonTypes().add(ButtonType.OK);
 		return a;
 	}
 	

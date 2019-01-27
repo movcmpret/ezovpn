@@ -77,5 +77,10 @@ public class YesNoCheckboxDialogPane extends DialogPane
 	   {
 		   return this.doNotShowAgain.isSelected();
 	   }
+
+	public CheckBox getDoNotShowAgain() {
+		return doNotShowAgain;
+	}
+
 	    
 }

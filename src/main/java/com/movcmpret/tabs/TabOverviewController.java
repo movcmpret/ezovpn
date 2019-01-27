@@ -33,13 +33,23 @@ import java.util.TimerTask;
 
 import org.controlsfx.control.ToggleSwitch;
 
-import com.sun.javafx.collections.ObservableListWrapper;
-
 import com.movcmpret.constants.Constants;
 import com.movcmpret.event.ConnectionChangedArgs;
 import com.movcmpret.event.EventManager;
 import com.movcmpret.interfaces.ConnectionChanged;
 import com.movcmpret.interfaces.DefaultController;
+import com.movcmpret.ovpn.config.NordVPNConfig;
+import com.movcmpret.ovpn.config.OVPNConfig;
+import com.movcmpret.ovpn.connection.OVPNConnector;
+import com.movcmpret.ovpn.tables.DefaultOVPNTable;
+import com.movcmpret.ovpn.tables.NordVPNTable;
+import com.movcmpret.ovpn.tables.OVPNTable;
+import com.movcmpret.persistence.UserProfile;
+import com.movcmpret.utility.AlertManager;
+import com.movcmpret.utility.Logger;
+import com.movcmpret.web.nordvpn.WebJsonParser;
+import com.sun.javafx.collections.ObservableListWrapper;
+
 import javafx.application.Platform;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -52,16 +62,6 @@ import javafx.scene.control.TableView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
-import com.movcmpret.ovpn.config.NordVPNConfig;
-import com.movcmpret.ovpn.config.OVPNConfig;
-import com.movcmpret.ovpn.connection.OVPNConnector;
-import com.movcmpret.ovpn.tables.DefaultOVPNTable;
-import com.movcmpret.ovpn.tables.NordVPNTable;
-import com.movcmpret.ovpn.tables.OVPNTable;
-import com.movcmpret.persistence.UserProfile;
-import com.movcmpret.utility.AlertManager;
-import com.movcmpret.utility.Logger;
-import com.movcmpret.web.nordvpn.WebJsonParser;
 
 public class TabOverviewController implements DefaultController, Initializable {
 	

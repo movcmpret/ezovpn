@@ -59,6 +59,8 @@ public class UserProfileData {
 	//Flags 
 		//Show the exit Dialog
 		private boolean showExitDialog = true;
+		//Show the "you are not root" dialog
+		private boolean showNoRootDialog = true;
 	
 	// in ms
 	private  long timeout;
@@ -198,6 +200,14 @@ public class UserProfileData {
 
 	public void setShowExitDialog(boolean showExitDialog) {
 		this.showExitDialog = showExitDialog;
+	}
+
+	public boolean isShowNoRootDialog() {
+		return showNoRootDialog;
+	}
+
+	public void setShowNoRootDialog(boolean showNoRootDialog) {
+		this.showNoRootDialog = showNoRootDialog;
 	}
 	
 
