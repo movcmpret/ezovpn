@@ -14,9 +14,10 @@ The quickstart guide helps you to immediately jump into ezOVPN.
 4. Enjoy ezOVPN :-)
 
 ## Windows
-1. Download the latest [Windows package](https://ezovpn.movcmpret.com/#containerDownload). 
-2. Execute the .exe File.
-3. Enjoy ezOVPN :-)
+1. Download the latest [Windows package](https://ezovpn.movcmpret.com/#containerDownload).
+2. Add openvpn to your PATH ([Tutorial](https://support.nordvpn.com/Connectivity/Windows/1162364372/How-to-put-OpenVPN-on-your-command-path-on-Windows.htm))
+3. Execute the .exe File.
+4. Enjoy ezOVPN :-)
 
 # 'I want to know what I am doing' guide
 __Important:__ Unfortunately, ezOVPN needs to be executed as root, because it is interacting with the OpenVPN CLI, which creates a TUN/TAP interface and a local TCP server called [Management Interface](https://openvpn.net/community-resources/management-interface/). If you're uncomfortable with it, just give the executing user permissions to openvpn and you should be fine without running the whole software as root.
