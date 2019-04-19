@@ -26,7 +26,15 @@ The `preconditions.sh` script installs the latest openVPN client via apt, create
 
 __ezOVPN is still an unstable and insecure software, so please be careful and don't use this software, unless you operate on a safe environment. Keep in mind, that you use this software at your own risk. It is provided without any kind of warranty.__
 
+# Troubleshooting
+There are several common problems that may occur. 
 
+## Java: "Cannot find Mainclass com.movcmpret..."
+This error mostly occurs, because the destination system has no JavaFX support. Unfortunately, there still exist some packaging problems with maven, which is why you need to install the required libs for JavaFX manually. Since this runs with Java 8 following apt packages are required (For Ubuntu; Please check for similar packages in for your dist): 
+
+- openjfx=8u161-b12-1ubuntu2
+- libopenjfx-jni=8u161-b12-1ubuntu2
+- libopenjfx-java=libopenjfx-jni=8u161-b12-1ubuntu2
 
 # Credits
 
