@@ -34,7 +34,7 @@ This error mostly occurs, because the destination system has no JavaFX support. 
 
 - openjfx=8u161-b12-1ubuntu2
 - libopenjfx-jni=8u161-b12-1ubuntu2
-- libopenjfx-java=libopenjfx-jni=8u161-b12-1ubuntu2
+- libopenjfx-java=8u161-b12-1ubuntu2
 
 # Credits
 
