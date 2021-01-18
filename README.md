@@ -1,3 +1,6 @@
+#This repository is not maintained anymore!
+
+
 # https://ezovpn.movcmpret.com
 
 # What is ezOVPN?
